@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สวนปาล์มลุงเสถียร</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+        h1, h3, h5, .navbar-brand, .modal-title {
+            font-family: 'Noto Serif Thai', serif;
+        }
+
+        /* ---- Custom CSS override #1: hero background (Bootstrap default has none) ---- */
+        .hero-slide {
+            min-height: 420px;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-a{ background-image: linear-gradient(rgba(20,28,15,0.55), rgba(15,22,10,0.65)), linear-gradient(120deg, #2c4322, #1a2a15); }
+        .hero-b{ background-image: linear-gradient(rgba(20,28,15,0.55), rgba(15,22,10,0.65)), linear-gradient(120deg, #4a3a1c, #23301a); }
+        .hero-c{ background-image: linear-gradient(rgba(20,28,15,0.55), rgba(15,22,10,0.65)), linear-gradient(120deg, #33421f, #1c2814); }
+
+        /* ---- Custom CSS override #2: recolor Bootstrap's default button/primary tones ---- */
+        .btn-gold{
+            background: #BD8A3D;
+            border-color: #BD8A3D;
+            color: #241a08;
+            font-weight: 600;
+        }
+        .btn-gold:hover{ background: #9C6F2C; border-color: #9C6F2C; color: #fff; }
+
+        /* ---- Custom CSS override #3: make the step cards feel clickable, overriding Bootstrap's flat card look ---- */
+        .step-card{
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-radius: .5rem;
+            padding: 1.25rem;
+            transition: border-color .2s ease, transform .2s ease;
+        }
+        .step-card:hover{
+            border-color: #BD8A3D;
+            transform: translateY(-4px);
+        }
+
+        .modal-header{
+            background: #21331C;
+            color: #F6F1E3;
+        }
+        .modal-header .btn-close{ filter: invert(1) grayscale(100%) brightness(200%); }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                🌴 สวนปาล์มลุงเสถียร
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">หน้าหลัก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">เกี่ยวกับสวน</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ผลผลิต</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">ทะลายปาล์มสด</a></li>
+                            <li><a class="dropdown-item" href="#">เมล็ดในปาล์ม</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">ติดต่อสั่งซื้อ</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">โปรโมชั่น</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+                    สอบถามราคา
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5 bg-light">
+        <div class="container my-5">
+            <div id="heroCarousel" class="carousel slide shadow rounded-4 overflow-hidden" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="hero-slide hero-a d-flex align-items-center justify-content-center text-white">
+                            <div class="text-center px-4">
+                                <p class="text-uppercase fw-semibold mb-3" style="letter-spacing: 0.2rem; opacity: 0.85;">สวนปาล์ม 3 รุ่น</p>
+                                <h1 class="display-5 fw-bold mb-3">ดินผืนเดิม มือคนรุ่นใหม่</h1>
+                                <p class="lead mb-4">สานต่อสวนปาล์ม 40 ไร่ที่ปู่เริ่มปลูกไว้เมื่อ 30 ปีก่อน</p>
+                                <button class="btn btn-gold btn-lg" data-bs-toggle="modal" data-bs-target="#inquiryModal">สอบถามราคา</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide hero-b d-flex align-items-center justify-content-center text-white">
+                            <div class="text-center px-4">
+                                <p class="text-uppercase fw-semibold mb-3" style="letter-spacing: 0.2rem; opacity: 0.85;">ฤดูเก็บเกี่ยว</p>
+                                <h1 class="display-5 fw-bold mb-3">ทะลายปาล์มสดคุณภาพ</h1>
+                                <p class="lead mb-4">เก็บตามรอบสุกจริง ไม่เร่งตัด เพื่อเปอร์เซ็นต์น้ำมันสูงสุด</p>
+                                <button class="btn btn-gold btn-lg" data-bs-toggle="modal" data-bs-target="#stepModal2">ดูขั้นตอนการผลิต</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide hero-c d-flex align-items-center justify-content-center text-white">
+                            <div class="text-center px-4">
+                                <p class="text-uppercase fw-semibold mb-3" style="letter-spacing: 0.2rem; opacity: 0.85;">ผลผลิตจากสวน</p>
+                                <h1 class="display-5 fw-bold mb-3">จากทะลายปาล์ม สู่น้ำมันดิบ</h1>
+                                <p class="lead mb-4">ทุกล็อตตรวจสอบย้อนกลับได้ ตั้งแต่แปลงปลูกถึงวันส่งขาย</p>
+                                <button class="btn btn-gold btn-lg" data-bs-toggle="modal" data-bs-target="#stepModal3">ดูผลผลิตของสวน</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="step-card" data-bs-toggle="modal" data-bs-target="#stepModal1">
+                        <div class="mb-3 fs-1">🌴</div>
+                        <h3 class="h5 fw-bold">ปลูกและดูแลต้น</h3>
+                        <p class="text-muted">คัดพันธุ์ปาล์มลูกผสม ใส่ปุ๋ยตามผลตรวจดินรายแปลง ดูแลตลอดปี</p>
+                        <span class="badge text-bg-light border">ดูรายละเอียด</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card" data-bs-toggle="modal" data-bs-target="#stepModal2">
+                        <div class="mb-3 fs-1">✂️</div>
+                        <h3 class="h5 fw-bold">เก็บเกี่ยวทะลายสุก</h3>
+                        <p class="text-muted">ตัดเฉพาะทะลายที่สุกได้เกณฑ์ ลำเลียงเข้าลานเทภายในวันเดียวกัน</p>
+                        <span class="badge text-bg-light border">ดูรายละเอียด</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card" data-bs-toggle="modal" data-bs-target="#stepModal3">
+                        <div class="mb-3 fs-1">🛢️</div>
+                        <h3 class="h5 fw-bold">ส่งเข้าโรงสกัด</h3>
+                        <p class="text-muted">ชั่งน้ำหนัก คัดเกรด และส่งเข้าโรงงานสกัดภายใน 24 ชั่วโมง</p>
+                        <span class="badge text-bg-light border">ดูรายละเอียด</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal: step 1 -->
+    <div class="modal fade" id="stepModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🌴 ปลูกและดูแลต้น</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="mb-0">
+                        <li>ใช้พันธุ์ปาล์มลูกผสมเทเนอรา (Tenera) เป็นหลัก</li>
+                        <li>ตรวจดินรายแปลงก่อนกำหนดสูตรปุ๋ย ปีละ 1 ครั้ง</li>
+                        <li>ควบคุมวัชพืชรอบโคนต้นทุก 45–60 วัน</li>
+                        <li>รอบดูแล: ตลอดทั้งปี ไม่มีช่วงหยุดพัก</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: step 2 -->
+    <div class="modal fade" id="stepModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">✂️ เก็บเกี่ยวทะลายสุก</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="mb-0">
+                        <li>ตัดเฉพาะทะลายที่มีลูกร่วงตามเกณฑ์สุก (ไม่ต่ำกว่า 10 ลูกร่วง/ทะลาย)</li>
+                        <li>รอบเก็บเกี่ยว: ทุก 10–15 วันต่อแปลง</li>
+                        <li>ลำเลียงเข้าลานเทภายในวันเดียวกัน เพื่อลดค่ากรดไขมันอิสระ (FFA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: step 3 -->
+    <div class="modal fade" id="stepModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🛢️ ส่งเข้าโรงสกัด</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="mb-0">
+                        <li>ชั่งน้ำหนักและคัดเกรดทะลายก่อนส่งทุกครั้ง</li>
+                        <li>ส่งเข้าโรงงานสกัดในเครือภายใน 24 ชั่วโมงหลังตัด</li>
+                        <li>มีใบบันทึกย้อนกลับถึงแปลงปลูกทุกล็อต</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal + styled form: inquiry -->
+    <div class="modal fade" id="inquiryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">สอบถามราคาและสั่งซื้อ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="iname" class="form-label">ชื่อ-นามสกุล</label>
+                            <input type="text" class="form-control" id="iname" placeholder="ชื่อของคุณ">
+                        </div>
+                        <div class="mb-3">
+                            <label for="iphone" class="form-label">เบอร์ติดต่อกลับ</label>
+                            <input type="tel" class="form-control" id="iphone" placeholder="08X-XXX-XXXX">
+                        </div>
+                        <div class="mb-3">
+                            <label for="itopic" class="form-label">สนใจสินค้าใด</label>
+                            <select class="form-select" id="itopic">
+                                <option>ทะลายปาล์มสด</option>
+                                <option>เมล็ดในปาล์ม</option>
+                                <option>อื่น ๆ</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <label for="imsg" class="form-label">รายละเอียดเพิ่มเติม</label>
+                            <textarea class="form-control" id="imsg" rows="3" placeholder="จำนวนที่ต้องการ, พื้นที่จัดส่ง ฯลฯ"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">ปิด</button>
+                    <button type="button" class="btn btn-gold">ส่งข้อความ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
